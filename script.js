@@ -87,3 +87,20 @@ if (validWhatsAppNumber(BUSINESS_PHONE)) {
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
   });
 }
+
+// Accessible category filters for the inspiration gallery.
+const galleryFilters = document.querySelectorAll(".gallery-filter");
+const galleryItems = document.querySelectorAll("#inspirationGallery .gallery-item");
+galleryFilters.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedCategory = button.dataset.filter;
+    galleryFilters.forEach((filterButton) => {
+      const isActive = filterButton === button;
+      filterButton.classList.toggle("is-active", isActive);
+      filterButton.setAttribute("aria-pressed", String(isActive));
+    });
+    galleryItems.forEach((item) => {
+      item.hidden = selectedCategory !== "all" && item.dataset.category !== selectedCategory;
+    });
+  });
+});

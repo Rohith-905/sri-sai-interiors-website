@@ -2,8 +2,8 @@
    Add your business phone and WhatsApp numbers before launch.
    Use international format, digits only. India country code is 91.
    Example format: 919876543210 (example only, not a real business number). */
-const BUSINESS_PHONE = "";
-const BUSINESS_WHATSAPP = "";
+const BUSINESS_PHONE = "919989287532";
+const BUSINESS_WHATSAPP = "919989287532";
 
 const menuToggle = document.getElementById("menuToggle");
 const siteNav = document.getElementById("siteNav");
@@ -36,7 +36,7 @@ function validWhatsAppNumber(number) {
 
 function openWhatsApp(message) {
   if (!validWhatsAppNumber(BUSINESS_WHATSAPP)) {
-    formStatus.textContent = "Website setup needed: add your WhatsApp number in script.js before using enquiries.";
+    formStatus.textContent = "WhatsApp is not configured correctly yet. Please contact the business by phone.";
     return;
   }
   const url = "https://wa.me/" + BUSINESS_WHATSAPP + "?text=" + encodeURIComponent(message);
@@ -48,7 +48,7 @@ if (validWhatsAppNumber(BUSINESS_WHATSAPP)) {
 } else {
   floatingWhatsapp.addEventListener("click", (event) => {
     event.preventDefault();
-    formStatus.textContent = "Please add your WhatsApp number in script.js before publishing the website.";
+    formStatus.textContent = "Please check the WhatsApp number configured for this website.";
     document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
   });
 }

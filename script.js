@@ -44,7 +44,7 @@ function openWhatsApp(message) {
 }
 
 if (validWhatsAppNumber(BUSINESS_WHATSAPP)) {
-  floatingWhatsapp.href = "https://wa.me/" + BUSINESS_WHATSAPP + "?text=" + encodeURIComponent("Hi Sri Sai Interiors, I would like to discuss an interior design project.");
+  floatingWhatsapp.href = "https://wa.me/" + BUSINESS_WHATSAPP;
 } else {
   floatingWhatsapp.addEventListener("click", (event) => {
     event.preventDefault();

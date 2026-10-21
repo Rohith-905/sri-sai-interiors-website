@@ -53,10 +53,16 @@
     </section>
     <section class="gallery-section" id="gallery">
       <div class="section gallery-heading"><div><p class="eyebrow">A LITTLE INSPIRATION</p><h2>Ideas for your<br><em>next chapter.</em></h2></div><p>These sample photos show the style of spaces we love. Replace them with your completed projects as your portfolio grows.</p></div>
-      <div class="gallery-grid">
-        <figure class="gallery-item gallery-large"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Sample modern living room" loading="lazy"><figcaption><span>01</span> Living spaces</figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Sample contemporary home interior" loading="lazy"><figcaption><span>02</span> Modern homes</figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80" alt="Sample thoughtfully styled interior" loading="lazy"><figcaption><span>03</span> Finishing details</figcaption></figure>
+      <div class="gallery-filters" role="group" aria-label="Filter inspiration images by room">
+        <button class="gallery-filter is-active" type="button" data-filter="all" aria-pressed="true">All inspiration</button>
+        <button class="gallery-filter" type="button" data-filter="living" aria-pressed="false">Living room</button>
+        <button class="gallery-filter" type="button" data-filter="home" aria-pressed="false">Home interiors</button>
+        <button class="gallery-filter" type="button" data-filter="details" aria-pressed="false">Finishing details</button>
+      </div>
+      <div class="gallery-grid" id="inspirationGallery">
+        <figure class="gallery-item gallery-large" data-category="living"><div class="gallery-image-wrap"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Illustrative sample photo of a modern living room" loading="lazy"><span class="sample-label">INSPIRATION PHOTO</span></div><figcaption><span>01</span> Living spaces</figcaption></figure>
+        <figure class="gallery-item" data-category="home"><div class="gallery-image-wrap"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Illustrative sample photo of a contemporary home interior" loading="lazy"><span class="sample-label">INSPIRATION PHOTO</span></div><figcaption><span>02</span> Modern homes</figcaption></figure>
+        <figure class="gallery-item" data-category="details"><div class="gallery-image-wrap"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80" alt="Illustrative sample photo showing interior styling details" loading="lazy"><span class="sample-label">INSPIRATION PHOTO</span></div><figcaption><span>03</span> Finishing details</figcaption></figure>
       </div>
       <p class="gallery-disclaimer">Portfolio note: images are illustrative sample photos, not verified Sri Sai Interiors projects.</p>
     </section>

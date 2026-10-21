@@ -127,7 +127,7 @@ function closeGalleryViewer() {
 document.querySelectorAll("#inspirationGallery .gallery-image-wrap img").forEach((image) => {
   image.closest(".gallery-image-wrap").addEventListener("click", () => {
     galleryLastFocused = image.closest(".gallery-image-wrap");
-    galleryViewerImage.src = image.src.replace(/w=\\d+/, "w=1800");
+    galleryViewerImage.src = image.src.replace(/w=\d+/, "w=1800");
     galleryViewerImage.alt = image.alt;
     galleryViewerCaption.textContent = image.closest(".gallery-item").querySelector("figcaption").textContent.trim() + " · Inspiration photo";
     galleryViewer.classList.add("is-open");

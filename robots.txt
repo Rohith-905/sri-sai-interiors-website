@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rohith-905.github.io/sri-sai-interiors-website/sitemap.xml

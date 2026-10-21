@@ -104,3 +104,41 @@ galleryFilters.forEach((button) => {
     });
   });
 });
+
+
+// Full-size accessible image viewer for inspiration photos.
+const galleryViewer = document.createElement("div");
+galleryViewer.className = "gallery-image-viewer";
+galleryViewer.setAttribute("role", "dialog");
+galleryViewer.setAttribute("aria-modal", "true");
+galleryViewer.setAttribute("aria-label", "Inspiration photo viewer");
+galleryViewer.setAttribute("tabindex", "-1");
+galleryViewer.innerHTML = '<div class="gallery-viewer-content"><button class="gallery-viewer-close" type="button" aria-label="Close image viewer">×</button><img alt=""><p class="gallery-viewer-caption"></p></div>';
+document.body.appendChild(galleryViewer);
+const galleryViewerImage = galleryViewer.querySelector("img");
+const galleryViewerCaption = galleryViewer.querySelector(".gallery-viewer-caption");
+const galleryViewerClose = galleryViewer.querySelector(".gallery-viewer-close");
+let galleryLastFocused = null;
+function closeGalleryViewer() {
+  galleryViewer.classList.remove("is-open");
+  document.body.style.overflow = "";
+  if (galleryLastFocused) galleryLastFocused.focus();
+}
+document.querySelectorAll("#inspirationGallery .gallery-image-wrap img").forEach((image) => {
+  image.closest(".gallery-image-wrap").addEventListener("click", () => {
+    galleryLastFocused = image.closest(".gallery-image-wrap");
+    galleryViewerImage.src = image.src.replace(/w=\\d+/, "w=1800");
+    galleryViewerImage.alt = image.alt;
+    galleryViewerCaption.textContent = image.closest(".gallery-item").querySelector("figcaption").textContent.trim() + " · Inspiration photo";
+    galleryViewer.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    galleryViewerClose.focus();
+  });
+});
+galleryViewerClose.addEventListener("click", closeGalleryViewer);
+galleryViewer.addEventListener("click", (event) => {
+  if (event.target === galleryViewer) closeGalleryViewer();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && galleryViewer.classList.contains("is-open")) closeGalleryViewer();
+});
